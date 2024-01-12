@@ -6,9 +6,9 @@ import { lusitana } from '@/app/ui/fonts';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
  
-export default async function Page( {searchParams} : {searchParams : {query: string, currentPage: number}}) {
-const currentPage= searchParams.currentPage;
-const query=searchParams.query;
+export default async function Page( {searchParams} : {searchParams?: {query?: string, currentPage?: number}}) {
+const currentPage= Number(searchParams?.currentPage) || 1;
+const query=searchParams?.query || '';
 
   return (
     <div className="w-full">
